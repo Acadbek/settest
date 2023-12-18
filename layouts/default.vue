@@ -1,5 +1,8 @@
 <template>
-  <div>HOME PAGE</div>
+  <TheNav />
+  <main container mx-auto>
+    <slot />
+  </main>
 </template>
 
 <script setup lang="ts"></script>
