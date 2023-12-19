@@ -1,4 +1,28 @@
 export default defineAppConfig({
+    links: [
+        {
+            label: "Profile",
+            avatar: {
+                src: "https://avatars.githubusercontent.com/u/739984?v=4",
+            },
+            badge: 100,
+        },
+        {
+            label: "Home",
+            icon: "i-heroicons-home",
+            to: "/",
+        },
+        {
+            label: "Students",
+            icon: "i-heroicons-chart-bar",
+            to: "/students",
+        },
+        {
+            label: "Test",
+            icon: "i-heroicons-command-line",
+            to: "/test",
+        },
+    ],
     ui: {
         primary: 'green',
         gray: 'slate',
@@ -10,7 +34,7 @@ export default defineAppConfig({
         }
     },
     seo: {
-        siteName: 'Settest online test platform',
+        siteName: 'Settest Online Test Platform',
     },
     header: {
         logo: {

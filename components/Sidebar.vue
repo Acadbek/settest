@@ -1,17 +1,9 @@
-  <template>
-  <nav>
-    <ul>
-      <li>home</li>
-      <li>home</li>
-      <li>home</li>
-      <li>home</li>
-      <li>home</li>
-      <li>home</li>
-    </ul>
-  </nav>
+<template>
+  <UVerticalNavigation :links="links" />
 </template>
 
 <script setup lang="ts">
+const { links } = useAppConfig();
 </script>
 
 <style scoped>

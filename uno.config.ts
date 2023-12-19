@@ -14,6 +14,7 @@ export default defineConfig({
         'bg-active': 'bg-gray:dex10',
         'link-active': 'text-[#00DB82]',
         'bg-base': 'bg-white dark:bg-[#020420]',
+        'border-style': 'dark:border-[#1E293B] border-[#F1F5F9]',
     },
     presets: [
         presetUno(),

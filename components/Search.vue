@@ -1,18 +1,24 @@
 <script setup lang="ts">
-const v = ref("");
+const { links } = useAppConfig();
+
+const inputValue = ref("");
 const isOpen = ref(false);
 
-const data = ref<string[]>(["students", "home", "test", "dashboard"]);
-
 function search() {
-  if (v.value === "") {
+  if (inputValue.value === "") {
     return [];
   } else {
-    return data.value.filter((d) =>
-      d.toLowerCase().includes(v.value.toLowerCase())
+    return links.filter((link) =>
+      link.label.toLowerCase().includes(inputValue.value.toLowerCase())
     );
   }
 }
+const checkTheme = () => {
+  let theme = document.getElementsByTagName("html")[0].className;
+};
+onMounted(() => {
+  checkTheme();
+});
 </script>
 
 <template>
@@ -31,21 +37,45 @@ function search() {
     </button>
 
     <UModal v-model="isOpen">
-      <UInput @input="search" placeholder="Search..." v-model="v" />
+      <UInput
+        variant="none"
+        class="border-b border-style"
+        icon="i-heroicons-magnifying-glass-20-solid"
+        size="xl"
+        color="white"
+        :trailing="false"
+        placeholder="Search..."
+        v-model="inputValue"
+      />
 
-      <div class="p-4">
-        <div v-for="item in search()" :key="item">
-          <NuxtLink
-            @click="isOpen = false"
-            :to="item === 'home' ? '/' : item"
-            >{{ item }}</NuxtLink
-          >
+      <div class="text-sm text-gray-700 dark:text-gray-200">
+        <div
+          class="flex justify-between select-none items-center rounded-md px-2 py-1.5 gap-2 relative hover:bg-gray-100 hover:dark:bg-gray-800 dark:bg-transparent text-gray-900 dark:text-white cursor-pointer"
+        >
+          <div class="flex items-center gap-2 min-w-0">
+            <span
+              class="i-heroicons-document-text flex-shrink-0 w-4 h-4 text-gray-900 dark:text-white"
+              aria-hidden="true"
+            >
+            </span>
+            <div class="flex items-center gap-1.5 min-w-0">
+              <span class="truncate flex-none">Introduction</span>
+              <span class="truncate text-gray-400 dark:text-gray-500"
+                >Welcome to Nuxt UI Pro documentation template.
+              </span>
+            </div>
+          </div>
         </div>
+      </div>
+
+      <div class="py-4 h-84 w-full">
+        <div v-for="item in search()" :key="item">
+          <NuxtLink @click="isOpen = false" :to="item.to">
+            {{ item.label }}
+          </NuxtLink>
+        </div>
+        <div class="border-t border-style">Theme</div>
       </div>
     </UModal>
   </div>
 </template>
-
-<style scoped>
-/* Add your scoped styles here if needed */
-</style>
