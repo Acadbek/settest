@@ -1,8 +1,15 @@
 <script setup lang="ts">
 const { links } = useAppConfig();
+let theme = useTheme();
+const color = useColorMode();
 
 const inputValue = ref("");
 const isOpen = ref(false);
+
+const changeThemeAndCloseModal = () => {
+  theme.value = true;
+  isOpen.value = false;
+};
 
 function search() {
   if (inputValue.value === "") {
@@ -13,9 +20,8 @@ function search() {
     );
   }
 }
-const checkTheme = () => {
-  let theme = document.getElementsByTagName("html")[0].className;
-};
+
+const checkTheme = () => {};
 onMounted(() => {
   checkTheme();
 });
@@ -36,45 +42,55 @@ onMounted(() => {
       </div>
     </button>
 
-    <UModal v-model="isOpen">
+    <UModal class="w-full" v-model="isOpen">
       <UInput
-        variant="none"
-        class="border-b border-style"
         icon="i-heroicons-magnifying-glass-20-solid"
         size="xl"
         color="white"
         :trailing="false"
+        variant="none"
+        class="border-b border-style"
         placeholder="Search..."
         v-model="inputValue"
       />
 
-      <div class="text-sm text-gray-700 dark:text-gray-200">
-        <div
-          class="flex justify-between select-none items-center rounded-md px-2 py-1.5 gap-2 relative hover:bg-gray-100 hover:dark:bg-gray-800 dark:bg-transparent text-gray-900 dark:text-white cursor-pointer"
-        >
-          <div class="flex items-center gap-2 min-w-0">
-            <span
-              class="i-heroicons-document-text flex-shrink-0 w-4 h-4 text-gray-900 dark:text-white"
-              aria-hidden="true"
-            >
-            </span>
-            <div class="flex items-center gap-1.5 min-w-0">
-              <span class="truncate flex-none">Introduction</span>
-              <span class="truncate text-gray-400 dark:text-gray-500"
-                >Welcome to Nuxt UI Pro documentation template.
-              </span>
-            </div>
-          </div>
-        </div>
+      <div
+        class="p-2 border-b border-style text-sm text-gray-700 dark:text-gray-200"
+      >
+        <MenuInModal
+          label="Introduction"
+          description="Welcome to Nuxt UI Pro documentation template."
+        />
+        <MenuInModal
+          label="Usage"
+          description="Welcome to Nuxt UI Pro documentation template."
+        />
       </div>
 
-      <div class="py-4 h-84 w-full">
+      <div class="p-2 h-84 w-full">
         <div v-for="item in search()" :key="item">
           <NuxtLink @click="isOpen = false" :to="item.to">
             {{ item.label }}
           </NuxtLink>
         </div>
-        <div class="border-t border-style">Theme</div>
+
+        <h2
+          class="px-2 my-2 text-xs font-semibold text-gray-900 dark:text-white"
+        >
+          Theme
+        </h2>
+        <Button
+          @click="changeThemeAndCloseModal"
+          :color="color"
+          label="Dark"
+          icon="i-carbon-moon"
+        />
+        <Button
+          @click="changeThemeAndCloseModal"
+          :color="color"
+          label="Light"
+          icon="i-carbon-sun"
+        />
       </div>
     </UModal>
   </div>

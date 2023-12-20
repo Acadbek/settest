@@ -11,7 +11,6 @@
 </template>
 
 <script setup lang="ts">
-const foo = useFoo();
 </script>
 
 <style scoped>
