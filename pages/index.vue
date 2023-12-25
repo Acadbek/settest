@@ -15,7 +15,7 @@ const { seo } = useAppConfig();
       </p>
       <div class="mt-10 flex flex-wrap gap-x-6 gap-y-3">
         <UButton
-          class="focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 flex-shrink-0 font-medium rounded-md text-sm gap-x-2.5 px-3.5 py-2.5 shadow-sm text-white dark:text-gray-900 bg-primary-500 hover:bg-primary-600 disabled:bg-primary-500 dark:bg-primary-400 dark:hover:bg-primary-500 dark:disabled:bg-primary-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500 dark:focus-visible:outline-primary-400 inline-flex items-center"
+          class="focus:outline-none disabled:cursor-not-allowed light:bg-green-400 disabled:opacity-75 flex-shrink-0 rounded-md text-sm gap-x-2.5 px-3.5 py-2.5 shadow-sm text-white font-bold dark:text-gray-900 hover:light:bg-green-500 hover:bg-primary-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500 dark:focus-visible:outline-primary-400 inline-flex items-center"
           >Get Started
           <span
             class="i-heroicons-arrow-right-20-solid flex-shrink-0 h-5 w-5"
@@ -24,7 +24,9 @@ const { seo } = useAppConfig();
         </UButton>
       </div>
     </div>
-    <div class="col-span-2 h-screen">aksjdn</div>
+    <div class="col-span-2 h-screen">
+      <img src="" alt="">
+    </div>
   </div>
 </template>
 

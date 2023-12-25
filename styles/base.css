@@ -12,3 +12,7 @@ body {
 .light {
   color-scheme: light;
 }
+
+.highlight {
+  color: yellow;
+}

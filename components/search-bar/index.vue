@@ -1,30 +1,28 @@
 <script setup lang="ts">
-const { links } = useAppConfig();
+const { links, footer, toc } = useAppConfig();
 let theme = useTheme();
 const color = useColorMode();
-
-const inputValue = ref("");
+const input = ref("");
 const isOpen = ref(false);
+const content = ref();
 
 const changeThemeAndCloseModal = () => {
   theme.value = true;
   isOpen.value = false;
 };
 
-function search() {
-  if (inputValue.value === "") {
+const filteredData = (e) => {
+  if (input.value === "") {
     return [];
   } else {
+    console.log(input
+    );
+  
     return links.filter((link) =>
-      link.label.toLowerCase().includes(inputValue.value.toLowerCase())
+      link.label.toLowerCase().includes(input.value.toLowerCase())
     );
   }
-}
-
-const checkTheme = () => {};
-onMounted(() => {
-  checkTheme();
-});
+};
 </script>
 
 <template>
@@ -34,7 +32,7 @@ onMounted(() => {
       label="Open"
       @click="isOpen = true"
     >
-      <i class="i-carbon-search text-md"></i>
+      <i i-carbon-search text-md></i>
       <span>Search...</span>
       <div space-x-1 ml-88>
         <UKbd>Ctrl</UKbd>
@@ -42,21 +40,20 @@ onMounted(() => {
       </div>
     </button>
 
-    <UModal class="w-full" v-model="isOpen">
+    <UModal class="w-full !h-44" v-model="isOpen">
       <UInput
-        icon="i-heroicons-magnifying-glass-20-solid"
-        size="xl"
+        icon="i-ic:baseline-search"
+        autocomplete="off"
+        size="md"
         color="white"
         :trailing="false"
         variant="none"
         class="border-b border-style"
         placeholder="Search..."
-        v-model="inputValue"
+        v-model="input"
       />
 
-      <div
-        class="p-2 border-b border-style text-sm text-gray-700 dark:text-gray-200"
-      >
+      <div p-2 border-b border-style text-sm text-gray-700 dark:text-gray-200>
         <MenuInModal
           label="Introduction"
           description="Welcome to Nuxt UI Pro documentation template."
@@ -67,16 +64,14 @@ onMounted(() => {
         />
       </div>
 
-      <div class="p-2 h-84 w-full">
-        <div v-for="item in search()" :key="item">
+      <div p-2>
+        <div v-for="item in filteredData()" :key="item">
           <NuxtLink @click="isOpen = false" :to="item.to">
-            {{ item.label }}
+            <MenuInModal :label="item.label" />
           </NuxtLink>
         </div>
 
-        <h2
-          class="px-2 my-2 text-xs font-semibold text-gray-900 dark:text-white"
-        >
+        <h2 px-2 my-2 text-xs font-semibold text-gray-900 dark:text-white>
           Theme
         </h2>
         <Button
