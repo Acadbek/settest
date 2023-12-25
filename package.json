@@ -24,6 +24,9 @@
   "dependencies": {
     "@nuxt/ui": "^2.11.1",
     "@unocss/nuxt": "^0.58.0",
-    "ohash": "^1.1.3"
+    "defu": "^6.1.3",
+    "lodash": "^4.17.21",
+    "ohash": "^1.1.3",
+    "tailwind-merge": "^2.2.0"
   }
 }
