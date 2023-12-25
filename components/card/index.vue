@@ -1,15 +1,10 @@
 <template>
-  <div
-    :class="[ui.wrapper, to && ui.to]"
-    v-bind="attrs"
-    :ui="ui"
-    :style="{ '--color-light': colorLight, '--color-dark': colorDark }"
-  >
-    hello
-  </div>
+  <div :class="[ui.wrapper, to && ui.to]" v-bind="attrs">hello</div>
 </template>
 
 <script setup lang="ts">
+import colors from "#tailwind-config/theme/colors";
+
 const appConfig = useAppConfig();
 
 const config = computed(() => ({

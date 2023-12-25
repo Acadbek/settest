@@ -56,7 +56,14 @@ const { seo } = useAppConfig();
     </div>
     <div col-span-2 h-screen>
       <div border-style border>
-        <Card title="hello card" icon="carbon-3d-cursor" color="blue" to="https://github.com/acadbek"/>
+        <GlowCapture>
+          <span>This won't glow</span>
+          <GlowElement color="purple">
+            <p class="text-black glow:text-glow/50 glow:bg-red-100">
+              This will glow purple when the mouse is passed over
+            </p>
+          </GlowElement>
+        </GlowCapture>
       </div>
     </div>
   </div>
