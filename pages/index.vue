@@ -19,51 +19,12 @@ const { seo } = useAppConfig();
         Endi test ishlash qulay
       </p>
       <div mt-10 flex flex-wrap gap-x-6 gap-y-3>
-        <UButton
-          focus:outline-none
-          disabled:cursor-not-allowed
-          light:bg-green-400
-          disabled:opacity-75
-          flex-shrink-0
-          rounded-md
-          text-sm
-          gap-x-2.5
-          px-3.5
-          py-2.5
-          shadow-sm
-          text-white
-          font-bold
-          dark:text-gray-900
-          hover:light:bg-green-500
-          hover:bg-primary-600
-          focus-visible:outline
-          focus-visible:outline-2
-          focus-visible:outline-offset-2
-          focus-visible:outline-primary-500
-          dark:focus-visible:outline-primary-400
-          inline-flex
-          items-center
-          >Get Started
-          <span
-            i-heroicons-arrow-right-20-solid
-            flex-shrink-0
-            h-5
-            w-5
-            aria-hidden="true"
-          ></span>
-        </UButton>
+        <Button label="Get Started"/>
       </div>
     </div>
     <div col-span-2 h-screen>
       <div border-style border>
-        <GlowCapture>
-          <span>This won't glow</span>
-          <GlowElement color="purple">
-            <p class="text-black glow:text-glow/50 glow:bg-red-100">
-              This will glow purple when the mouse is passed over
-            </p>
-          </GlowElement>
-        </GlowCapture>
+        <Card />
       </div>
     </div>
   </div>

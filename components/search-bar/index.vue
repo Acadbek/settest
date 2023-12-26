@@ -15,9 +15,8 @@ const filteredData = (e) => {
   if (input.value === "") {
     return [];
   } else {
-    console.log(input
-    );
-  
+    console.log(input);
+
     return links.filter((link) =>
       link.label.toLowerCase().includes(input.value.toLowerCase())
     );
@@ -53,7 +52,9 @@ const filteredData = (e) => {
         v-model="input"
       />
 
-      <div p-2 border-b border-style text-sm text-gray-700 dark:text-gray-200>
+      <div
+        class="border-b border-style text-sm text-gray-700 dark:text-gray-200"
+      >
         <MenuInModal
           label="Introduction"
           description="Welcome to Nuxt UI Pro documentation template."

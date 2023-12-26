@@ -1,5 +1,5 @@
 <template>
-  <div :class="[ui.wrapper, to && ui.to]" v-bind="attrs">hello</div>
+  <component is="h1">asdasd</component>
 </template>
 
 <script setup lang="ts">
@@ -24,12 +24,15 @@ const config = computed(() => ({
   description: "text-[15px] text-gray-500 dark:text-gray-400 mt-1 mb-0",
 }));
 
+console.log(config, "config");
+
 defineOptions({
   inheritAttrs: false,
 });
 
 const props = withDefaults(
   defineProps<{
+    as: "a";
     icon?: string;
     color?: string;
     to?: string;

@@ -1,29 +1,45 @@
 <script setup lang="ts">
-defineProps({
-  color: {
-    type: Object,
-    required: true,
-  },
-  label: {
-    type: String,
-    required: true,
-  },
-  icon: {
-    type: String,
-    required: true,
-  },
-});
+// defineProps({
+//   color: {
+//     type: Object,
+//     required: false,
+//   },
+//   label: {
+//     type: String,
+//     required: true,
+//   },
+//   icon: {
+//     type: String,
+//     required: true,
+//   },
+//   variant: {
+//     type: String,
+//     required: true,
+//   },
+// });
+
+const props = withDefaults(
+  defineProps<{
+    color: string;
+    label: string;
+    icon: string;
+    variant: string;
+  }>(),
+  {
+    variant: "ghost",
+  }
+);
 </script>
 
 <template>
   <UButton
     class="flex justify-start !text-left select-none items-center rounded-md px-2 py-1.5 gap-2 relative cursor-pointer"
-    :class="{ 'hover:!bg-transparent': color.value === label.toLowerCase() }"
+    :class="{ 'hover:!bg-transparent': color?.value === label.toLowerCase() }"
     block
     color="gray"
     :label="label"
-    variant="ghost"
-    :disabled="color.value === label.toLowerCase()"
+    :variant="props.variant"
+    :disabled="color?.value === label.toLowerCase()"
   >
     <template #trailing>
       <UIcon :name="icon" />
