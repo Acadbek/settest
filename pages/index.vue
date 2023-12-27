@@ -19,7 +19,14 @@ const { seo } = useAppConfig();
         Endi test ishlash qulay
       </p>
       <div mt-10 flex flex-wrap gap-x-6 gap-y-3>
-        <Button label="Get Started"/>
+        <UButton
+          icon="i-heroicons-pencil-square"
+          size="sm"
+          color="primary"
+          variant="solid"
+          label="Button"
+          :trailing="false"
+        />
       </div>
     </div>
     <div col-span-2 h-screen>

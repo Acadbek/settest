@@ -16,3 +16,7 @@ body {
 .highlight {
   color: yellow;
 }
+
+#headlessui-dialog-panel-5 {
+  background-color: '';
+}
