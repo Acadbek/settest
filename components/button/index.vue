@@ -1,23 +1,4 @@
 <script setup lang="ts">
-// defineProps({
-//   color: {
-//     type: Object,
-//     required: false,
-//   },
-//   label: {
-//     type: String,
-//     required: true,
-//   },
-//   icon: {
-//     type: String,
-//     required: true,
-//   },
-//   variant: {
-//     type: String,
-//     required: true,
-//   },
-// });
-
 const props = withDefaults(
   defineProps<{
     color: string;

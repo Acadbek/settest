@@ -22,7 +22,6 @@
     "vue-router": "^4.2.5"
   },
   "dependencies": {
-    "@aksharahegde/nuxt-glow": "^1.1.1",
     "@nuxt/ui": "^2.11.1",
     "@unocss/nuxt": "^0.58.0",
     "defu": "^6.1.3",

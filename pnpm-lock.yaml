@@ -5,9 +5,6 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
-  '@aksharahegde/nuxt-glow':
-    specifier: ^1.1.1
-    version: 1.1.1
   '@nuxt/ui':
     specifier: ^2.11.1
     version: 2.11.1(nuxt@3.8.2)(vite@5.0.8)(vue@3.3.11)
@@ -61,15 +58,6 @@ packages:
   /@aashutoshrathi/word-wrap@1.2.6:
     resolution: {integrity: sha512-1Yjs2SvM8TflER/OD3cOjhWWOZb58A2t7wpE2S9XfBYTiIl+XFhQG2bjy4Pu1I+EAlCNUzRDYDdFwFYUKvXcIA==}
     engines: {node: '>=0.10.0'}
-
-  /@aksharahegde/nuxt-glow@1.1.1:
-    resolution: {integrity: sha512-Pca3dcxva8PeNPbuc4lws3Mbvb5fCXe65DfZu9OXTB+DItczhIPLO89wS8/2uz86p6EfxZwSjvngF7u5PRklOQ==}
-    dependencies:
-      '@nuxt/kit': 3.8.2
-    transitivePeerDependencies:
-      - rollup
-      - supports-color
-    dev: false
 
   /@alloc/quick-lru@5.2.0:
     resolution: {integrity: sha512-UrcABB+4bUrFABwbluTIBErXwvbsU/V7TZWfmbgJfbkwiBuziS9gxdODUyuiecfdGQ85jglMW6juS3+z5TsKLw==}
