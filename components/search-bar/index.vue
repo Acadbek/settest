@@ -2,6 +2,8 @@
 const { links, footer, toc } = useAppConfig();
 let theme = useTheme();
 const color = useColorMode();
+
+// refs
 const input = ref("");
 const isOpen = ref(false);
 const content = ref();
@@ -11,17 +13,15 @@ const changeThemeAndCloseModal = () => {
   isOpen.value = false;
 };
 
-const filteredData = (e) => {
+const filteredData = computed(() => {
   if (input.value === "") {
     return [];
   } else {
-    console.log(input);
-
     return links.filter((link) =>
       link.label.toLowerCase().includes(input.value.toLowerCase())
     );
   }
-};
+});
 </script>
 
 <template>
@@ -39,12 +39,12 @@ const filteredData = (e) => {
       </div>
     </button>
 
-    <UModal class="w-full !h-44" v-model="isOpen">
+    <UModal v-model="isOpen">
       <UInput
         icon="i-ic:baseline-search"
         autocomplete="off"
         size="md"
-        color="white"
+        color="red"
         :trailing="false"
         variant="none"
         class="border-b border-style"
@@ -66,7 +66,7 @@ const filteredData = (e) => {
       </div>
 
       <div p-2>
-        <div v-for="item in filteredData()" :key="item">
+        <div v-for="item in filteredData" :key="item">
           <NuxtLink @click="isOpen = false" :to="item.to">
             <MenuInModal :label="item.label" />
           </NuxtLink>
