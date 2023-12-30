@@ -2,7 +2,6 @@
 const { ui } = useAppConfig();
 // const ariaLabel = computed(() => (props.title || (slots.title && getSlotChildrenText(slots.title())) || 'Card link').trim())
 // for card
-
 </script>
 
 <template>
@@ -10,7 +9,16 @@ const { ui } = useAppConfig();
     <nav container flex justify-between items-center>
       <NuxtLink class="i-bxl:tux text-4xl" to="/"> </NuxtLink>
       <SearchBar />
-      <ColorSchemeToggle />
+      <div flex gap-4>
+        <ColorSchemeToggle mt-1.4/>
+        <NuxtLink to="/profile">
+          <UAvatar
+            size="sm"
+            src="https://avatars.githubusercontent.com/u/739984?v=4"
+            alt="Avatar"
+          />
+        </NuxtLink>
+      </div>
     </nav>
   </header>
 </template>
