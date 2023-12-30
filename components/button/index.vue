@@ -17,7 +17,7 @@ const props = withDefaults(
     class="flex justify-start !text-left select-none items-center rounded-md px-2 py-1.5 gap-2 relative cursor-pointer"
     :class="{ 'hover:!bg-transparent': color?.value === label.toLowerCase() }"
     block
-    color="gray"
+    :color="props.color"
     :label="label"
     :variant="props.variant"
     :disabled="color?.value === label.toLowerCase()"
