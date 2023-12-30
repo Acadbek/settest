@@ -7,6 +7,7 @@ const color = useColorMode();
 const input = ref("");
 const isOpen = ref(false);
 const content = ref();
+const contentStatus = ref(true);
 
 const changeThemeAndCloseModal = () => {
   theme.value = true;
@@ -14,9 +15,10 @@ const changeThemeAndCloseModal = () => {
 };
 
 const filteredData = computed(() => {
-  if (input.value === "") {
+  if (!input.value) {
     return [];
   } else {
+    contentStatus.value = false;
     return links.filter((link) =>
       link.label.toLowerCase().includes(input.value.toLowerCase())
     );
@@ -39,7 +41,7 @@ const filteredData = computed(() => {
       </div>
     </button>
 
-    <UModal v-model="isOpen">
+    <UModal class="bg-white dark:bg-gray-900" v-model="isOpen">
       <UInput
         icon="i-ic:baseline-search"
         autocomplete="off"
@@ -52,18 +54,20 @@ const filteredData = computed(() => {
         v-model="input"
       />
 
-      <div
-        class="border-b border-style text-sm text-gray-700 dark:text-gray-200"
-      >
-        <MenuInModal
-          label="Introduction"
-          description="Welcome to Nuxt UI Pro documentation template."
-        />
-        <MenuInModal
-          label="Usage"
-          description="Welcome to Nuxt UI Pro documentation template."
-        />
-      </div>
+      <template v-if="filteredData.length < 1">
+        <div
+          class="border-b border-style text-sm text-gray-700 dark:text-gray-200"
+        >
+          <MenuInModal
+            label="Introduction"
+            description="Welcome to Nuxt UI Pro documentation template."
+          />
+          <MenuInModal
+            label="Usage"
+            description="Welcome to Nuxt UI Pro documentation template."
+          />
+        </div>
+      </template>
 
       <div p-2>
         <div v-for="item in filteredData" :key="item">
