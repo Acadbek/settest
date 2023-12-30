@@ -6,5 +6,3 @@
 const { links } = useAppConfig();
 </script>
 
-<style scoped>
-</style>
