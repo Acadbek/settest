@@ -1,11 +1,5 @@
 <script setup lang="ts">
 const { seo } = useAppConfig();
-const isOpen = ref(false);
-
-const ui = {
-  ring: "",
-  divide: "divide-y divide-gray-100 dark:divide-gray-800",
-};
 </script>
 
 <template>
@@ -27,12 +21,13 @@ const ui = {
 
           {{ seo.siteName }}
         </div>
-        <p mt-6 text-4xl tracking-tight text-gray-600 dark:text-gray-300>
-          Endi test ishlash qulay
+        <p mt-6 text-2xl tracking-tight text-gray-600 dark:text-gray-300>
+          Daftarda yechish jonga tegdimi? <br />
+          Xa bo'lsa "Testni boshlash" tugmasini bos!
         </p>
         <div mt-10 flex flex-wrap gap-x-6 gap-y-3>
           <UButton
-            @click="isOpen = true"
+            to="test"
             class="text-[18px] !bg-primary-500"
             color="primary"
             variant="solid"
@@ -52,27 +47,4 @@ const ui = {
       </div>
     </div>
   </section>
-  <UModal v-model="isOpen" prevent-close>
-    <UCard :ui="ui">
-      <template #header>
-        <div class="flex items-center justify-between">
-          <h3
-            class="text-base font-semibold leading-6 text-gray-900 dark:text-white"
-          >
-            Modal
-          </h3>
-          <UButton
-            color="gray"
-            variant="ghost"
-            icon="i-heroicons-x-mark-20-solid"
-            class="-my-1"
-            @click="isOpen = false"
-          />
-        </div>
-      </template>
-
-      <p>Asosiy</p>
-      <p>Majburiy</p>
-    </UCard>
-  </UModal>
 </template>
