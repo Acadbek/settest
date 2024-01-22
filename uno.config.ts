@@ -16,6 +16,7 @@ export default defineConfig({
     "bg-base": "bg-white dark:bg-[#020420]",
     "border-style": "dark:border-[#1E293B] border-[#F1F5F9]",
     "green-color": "text-[#00DC82]",
+    "border-green": "border-[#00DC82]",
   },
   presets: [
     presetUno(),
