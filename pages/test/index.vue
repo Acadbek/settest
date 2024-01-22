@@ -19,7 +19,7 @@ const items = [
   },
 ];
 
-const { data: results } = useFetch("https://opentdb.com/api.php?amount=3&type=multiple", {
+const { data: results } = useFetch("https://opentdb.com/api.php?amount=30&type=multiple", {
   getCachedData(key) {
     return nuxtApp.payload.data[key] || nuxtApp.static.data[key];
   },
