@@ -1,12 +1,5 @@
 <script setup lang="ts">
-const props = withDefaults(
-  defineProps<{
-    length: number;
-  }>(),
-  {
-    length: 0,
-  }
-);
+const props = withDefaults(defineProps<{ length: number }>(), { length: 0 });
 
 const isOpenSlideOver = ref(false);
 
@@ -17,7 +10,12 @@ const handleSlide = async (e) => {
 </script>
 
 <template>
-  <UButton label="Open SlideOver" color="white" @click="isOpenSlideOver = true" />
+  <UButton
+    class="fixed bottom-8 rounded-full right-8 z-10"
+    label="Test holati"
+    color="white"
+    @click="isOpenSlideOver = true"
+  />
 
   <USlideover v-model="isOpenSlideOver">
     <UCard
@@ -28,9 +26,14 @@ const handleSlide = async (e) => {
         divide: 'divide-y divide-gray-100 dark:divide-gray-800',
       }"
     >
-      <template #header>
-        <Placeholder class="h-8" />
-      </template>
+      <UButton
+        :ui="{ rounded: 'rounded-full' }"
+        color="white"
+        @click="isOpenSlideOver = false"
+        class="p-2 h-10 w-10 flex hover:!bg-slate-800 justify-center items-center absolute top-[10px] left-[-50px]"
+      >
+        <i class="i-carbon:arrow-right text-white">a</i>
+      </UButton>
 
       <div flex flex-wrap gap-2 justify-start items-center>
         <UButton
