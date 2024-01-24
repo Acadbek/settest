@@ -1,11 +1,12 @@
 <script setup lang="ts">
 const { seo } = useAppConfig();
+const { locale } = useI18n();
 </script>
 
 <template>
   <section>
     <div grid grid-cols-4 h-screen>
-      <div col-span-2 pt-56>
+      <div col-span-2 pt-32>
         <div
           text-7xl
           font-extrabold
@@ -27,7 +28,7 @@ const { seo } = useAppConfig();
         </p>
         <div mt-10 flex flex-wrap gap-x-6 gap-y-3>
           <UButton
-            to="test"
+            :to="localePath('test')"
             class="text-[18px] !bg-primary-500"
             color="primary"
             variant="solid"
@@ -36,7 +37,7 @@ const { seo } = useAppConfig();
               class="i-heroicons-rocket-launch flex-shrink-0 h-5 w-5"
               aria-hidden="true"
             ></span>
-            Testni boshlash
+            {{ $t("startTest") }}
           </UButton>
         </div>
       </div>

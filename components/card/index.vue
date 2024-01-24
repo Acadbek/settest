@@ -24,8 +24,6 @@ const config = computed(() => ({
   description: "text-[15px] text-gray-500 dark:text-gray-400 mt-1 mb-0",
 }));
 
-console.log(config, "config");
-
 defineOptions({
   inheritAttrs: false,
 });
