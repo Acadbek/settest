@@ -1,6 +1,7 @@
 <script setup lang="ts">
 const { ui } = useAppConfig();
 const switchLocalePath = useSwitchLocalePath();
+const localePath = useLocalePath();
 
 // const ariaLabel = computed(() => (props.title || (slots.title && getSlotChildrenText(slots.title())) || 'Card link').trim())
 // for card
@@ -9,7 +10,10 @@ const switchLocalePath = useSwitchLocalePath();
 <template>
   <header flex justify-center items-center py-4 bg-base border-b border-style>
     <nav container flex justify-between items-center>
-      <NuxtLink class="i-bxl:tux text-4xl" to="/"> </NuxtLink>
+      <!-- <NuxtLink class="i-bxl:tux text-4xl" to="/"> </NuxtLink> -->
+      <NuxtLink :to="localePath('/')" class="font-bold text-3xl tracking-wider"
+        >SETTEST</NuxtLink
+      >
       <SearchBar />
       <div flex gap-5>
         <UPopover mode="hover" class="mt-[3px]">

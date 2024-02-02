@@ -42,9 +42,9 @@ const { locale } = useI18n();
         </div>
       </div>
       <div col-span-2>
-        <div border-style border>
+        <!-- <div border-style border>
           <Card />
-        </div>
+        </div> -->
       </div>
     </div>
   </section>

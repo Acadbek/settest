@@ -10,7 +10,7 @@ useHead({
   htmlAttrs: { lang: "uz" },
 });
 
-useSeoMeta({
+useSeoMeta({  
   ogSiteName: seo?.siteName,
 });
 </script>

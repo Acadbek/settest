@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const nuxtApp = useNuxtApp();
+const data = ref([]);
 
 definePageMeta({
   layout: "dashboard",
@@ -18,17 +19,23 @@ const items = [
     description: "Change your password here. After saving, you'll be logged out.",
   },
 ];
+const { data: results, status, error } = useFetch(
+  "https://opentdb.com/api.php?amount=30&type=multiple",
+  {
+    getCachedData(key) {
+      return nuxtApp.payload.data[key] || nuxtApp.static.data[key];
+    },
+  }
+);
 
-const { data: results } = useFetch("https://opentdb.com/api.php?amount=30&type=multiple", {
-  getCachedData(key) {
-    return nuxtApp.payload.data[key] || nuxtApp.static.data[key];
-  },
-});
+// watch(items, (newX) => {});
+
+// watch(() => () => {});
+
+console.log(status, "status");
+console.log(error, "error");
 
 const selected = ref("sms");
-
-const mainForm = reactive({ name: results, username: "asas" });
-const mandatoryForm = reactive({ currentPassword: "asad", newPassword: "" });
 
 function onSubmit(form) {
   console.log("Submitted form:", form);
@@ -61,15 +68,32 @@ function onSubmit(form) {
               <h3 :id="i + 1" class="text-[18px] pb-2">
                 {{ i + 1 }} - {{ question.question }}
               </h3>
+              <div flex space-x-12>
+                <UCheckbox color="primary" label="A" />
+                <UCheckbox color="primary" label="B" />
+                <UCheckbox color="primary" label="C" />
+              </div>
             </div>
           </div>
-          <div v-else v-for="_ in 5">
+          <div v-if="status === 'pending'" v-for="_ in 5">
             <USkeleton class="h-[50px] w-full mb-1" />
             <USkeleton class="h-[50px] w-full" />
           </div>
+
+          <div v-if="status === 'error'">
+            <p>Something went wrong!</p>
+          </div>
         </div>
-        <div v-else-if="item.key === 'majburiy'" class="space-y-3">
-          <p>Majburiy</p>
+        <div v-if="item.key === 'majburiy'" class="space-y-3">
+          <h3>Majburiy tests</h3>
+          <div v-if="status === 'pending'" v-for="_ in 5">
+            <USkeleton class="h-[50px] w-full mb-1" />
+            <USkeleton class="h-[50px] w-full" />
+          </div>
+
+          <div v-if="status === 'error'">
+            <p>Something went wrong!</p>
+          </div>
         </div>
 
         <template #footer>

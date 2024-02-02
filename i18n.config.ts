@@ -4,15 +4,21 @@ export default defineI18nConfig(() => ({
   messages: {
     uz: {
       startTest: 'Testni boshlash',
-      lang: 'O\'zbek'
+      home: 'Asosiy',
+      students: "O'quvchilar",
+      test: 'Testlar'
     },
     ru: {
       startTest: 'Начать тест',
-      lang: 'Русский'
+      home: 'Главная страница',
+      students: "Студенты",
+      test: 'Тесты'
     },
     en: {
       startTest: 'Start the test',
-      lang: 'English'
+      home: 'Home',
+      students: "Students",
+      test: 'Tests'
     }
   }
 }))

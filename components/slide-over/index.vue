@@ -11,9 +11,9 @@ const handleSlide = async (e) => {
 
 <template>
   <UButton
-    class="fixed bottom-8 rounded-full right-8 z-10"
+    class="fixed !bg-primary bottom-8 rounded-full text-[17px] right-8 z-10"
     label="Test holati"
-    color="white"
+    color="primary"
     @click="isOpenSlideOver = true"
   />
 
