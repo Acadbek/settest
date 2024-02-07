@@ -6,8 +6,16 @@ export default defineNuxtConfig({
     '@nuxt/ui',
     '@nuxtjs/i18n',
     '@nuxt/image',
-    '@nuxtjs/supabase'
+    ['@nuxtjs/supabase', {
+      supabaseUrl: process.env.SUPABASE_URL,
+      supabaseKey: process.env.SUPABASE_KEY,
+    }]
   ],
+  runtimeConfig: {
+    public: {
+      baseUrl: process.env.BASE_URL || 'http://localhost:3000'
+    }
+  },
   i18n: {
     locales: ['uz', 'ru', 'en'],
     defaultLocale: 'uz',
@@ -15,12 +23,5 @@ export default defineNuxtConfig({
   colorMode: {
     classSuffix: '',
   },
-  typescript: { strict: true },
-  supabase: {
-    redirectOptions: {
-      login: '/',
-      callback: '/confirm',
-      exclude: ['/test', '/students', '/profile', '/login']
-    }
-  },
+  typescript: { strict: true }
 })

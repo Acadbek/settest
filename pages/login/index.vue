@@ -1,17 +1,14 @@
 <script setup lang="ts">
-const supabase = useSupabaseClient();
 const user = useSupabaseUser();
+const { auth } = useSupabaseClient();
 
-definePageMeta({});
+const redirectTo = `${useRuntimeConfig().public.baseUrl}/confirm`;
 
-const signInWithOAuth = async () => {
-  const { error } = await supabase.auth.signInWithOAuth({
-    provider: "github",
-    options: {
-      redirectTo: "http://localhost:3000/",
-    },
-  });
-};
+watchEffect(() => {
+  if (user.value) {
+    navigateTo("/profile");
+  }
+});
 </script>
 
 <template>
@@ -22,6 +19,6 @@ const signInWithOAuth = async () => {
     block
     label="Github"
     variant="primary"
-    @click="signInWithOAuth"
+    @click="auth.signInWithOAuth({ provider: 'github', options: { redirectTo } })"
   ></UButton>
 </template>
