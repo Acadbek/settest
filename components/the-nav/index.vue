@@ -2,14 +2,13 @@
 const { ui } = useAppConfig();
 const switchLocalePath = useSwitchLocalePath();
 const localePath = useLocalePath();
-const supabase = useSupabaseClient();
+const client = useSupabaseClient();
+const user = useSupabaseUser();
 
-// const signOut = async () => {
-//   const { error } = await supabase.auth.signOut();
-//   if (error) console.log(error);
-// };
-// const ariaLabel = computed(() => (props.title || (slots.title && getSlotChildrenText(slots.title())) || 'Card link').trim())
-// for card
+const logout = async () => {
+  await client.auth.signOut();
+  navigateTo("/login");
+};
 </script>
 
 <template>
@@ -46,7 +45,9 @@ const supabase = useSupabaseClient();
           />
         </NuxtLink>
 
-        <UButton>Logout</UButton>
+        <UButton v-if="user" class="u-text-white" variant="transparent" @click="logout">
+          Logout
+        </UButton>
       </div>
     </nav>
   </header>
