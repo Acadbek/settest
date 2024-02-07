@@ -5,7 +5,7 @@ const route = useRoute();
 
 <template>
   <TheNav />
-  <main container mx-auto>
+  <main container mx-auto h-screen>
     <!-- <NuxtLink color="green" :to="localePath('test')">Tests</NuxtLink> -->
     <slot />
   </main>

@@ -2,7 +2,12 @@
 const { ui } = useAppConfig();
 const switchLocalePath = useSwitchLocalePath();
 const localePath = useLocalePath();
+const supabase = useSupabaseClient();
 
+// const signOut = async () => {
+//   const { error } = await supabase.auth.signOut();
+//   if (error) console.log(error);
+// };
 // const ariaLabel = computed(() => (props.title || (slots.title && getSlotChildrenText(slots.title())) || 'Card link').trim())
 // for card
 </script>
@@ -40,6 +45,8 @@ const localePath = useLocalePath();
             alt="Avatar"
           />
         </NuxtLink>
+
+        <UButton>Logout</UButton>
       </div>
     </nav>
   </header>

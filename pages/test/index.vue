@@ -28,10 +28,6 @@ const { data: results, status, error } = useFetch(
   }
 );
 
-// watch(items, (newX) => {});
-
-// watch(() => () => {});
-
 console.log(status, "status");
 console.log(error, "error");
 
