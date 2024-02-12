@@ -2,13 +2,6 @@
 const { ui } = useAppConfig();
 const switchLocalePath = useSwitchLocalePath();
 const localePath = useLocalePath();
-const client = useSupabaseClient();
-const user = useSupabaseUser();
-
-const logout = async () => {
-  await client.auth.signOut();
-  navigateTo("/login");
-};
 </script>
 
 <template>
@@ -39,15 +32,21 @@ const logout = async () => {
         <ColorSchemeToggle mt-1.4 />
         <NuxtLink to="/profile">
           <UAvatar
+            v-if="$auth.user?.picture"
             size="sm"
-            src="https://avatars.githubusercontent.com/u/87940040?v=4"
+            :src="$auth.user?.picture"
             alt="Avatar"
           />
         </NuxtLink>
-
-        <UButton v-if="user" class="u-text-white" variant="transparent" @click="logout">
-          Logout
-        </UButton>
+        <template v-if="!$auth.user">
+          <NuxtLink to="/api/login" external>Login</NuxtLink>
+          <NuxtLink to="/api/register" external>Register</NuxtLink>
+        </template>
+        <template v-else>
+          <p>{{ $auth.user?.given_name }}</p>
+          <p>{{ $auth.user?.family_name }}</p>
+          <NuxtLink to="/api/logout" external>Logout</NuxtLink>
+        </template>
       </div>
     </nav>
   </header>

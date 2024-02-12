@@ -6,16 +6,8 @@ export default defineNuxtConfig({
     '@nuxt/ui',
     '@nuxtjs/i18n',
     '@nuxt/image',
-    ['@nuxtjs/supabase', {
-      supabaseUrl: process.env.SUPABASE_URL,
-      supabaseKey: process.env.SUPABASE_KEY,
-    }]
+    '@nuxtjs/kinde',
   ],
-  runtimeConfig: {
-    public: {
-      baseUrl: process.env.BASE_URL || 'http://localhost:3000'
-    }
-  },
   i18n: {
     locales: ['uz', 'ru', 'en'],
     defaultLocale: 'uz',
@@ -23,5 +15,5 @@ export default defineNuxtConfig({
   colorMode: {
     classSuffix: '',
   },
-  typescript: { strict: true }
+  typescript: { strict: true },
 })
