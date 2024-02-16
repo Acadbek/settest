@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+const auth = useState("auth");
+
 definePageMeta({
   layout: "dashboard",
 });
