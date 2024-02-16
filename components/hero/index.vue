@@ -20,7 +20,7 @@ const { locale } = useI18n();
             {{ seo.mainTitle }}
           </h1>
 
-          {{ seo.siteName }}
+          {{ $t('mainTitle') }}
         </div>
         <p mt-6 text-2xl tracking-tight text-gray-600 dark:text-gray-300>
           Daftarda yechish jonga tegdimi? <br />
