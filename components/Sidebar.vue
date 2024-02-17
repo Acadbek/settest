@@ -20,5 +20,5 @@ const links = [
 </script>
 
 <template>
-  <UVerticalNavigation :links="links" />
+  <UVerticalNavigation class="h-screen sticky top-3" :links="links" />
 </template>
