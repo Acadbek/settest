@@ -1,9 +1,9 @@
 <template>
   <TheNav />
   <main container mx-auto>
-    <div grid grid-cols-5 gap-4 mt-4>
-      <Sidebar col-span-1 />
-      <div col-span-4 min-h-screen>
+    <div grid grid-cols-12 gap-4 mt-4>
+      <Sidebar col-span-2 />
+      <div col-span-10 min-h-screen>
         <slot />
       </div>
     </div>

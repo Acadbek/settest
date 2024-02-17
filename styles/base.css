@@ -1,6 +1,7 @@
 html,
 body {
   --uno: bg-base font-sans;
+  scroll-behavior: smooth;
 }
 
 .dark {
